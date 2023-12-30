@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-Stamp Document Generator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 50px;
+    }
+
+    #form-container {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    #generated-document {
+      margin-top: 20px;
+      white-space: pre-line;
+    }
+  </style>
+</head>
+<body>
+  <h1>E-Stamp Document Generator</h1>
+
+  <div id="form-container">
+    <label for="clientName">Client Name:</label>
+    <input type="text" id="clientName" placeholder="Write your name"><br>
+
+    <label for="caseNumber">Case Number:</label>
+    <input type="text" id="caseNumber" placeholder="12345"><br>
+
+    <label for="legalContent">Legal Content:</label>
+    <textarea id="legalContent" placeholder="Enter legal content here..."></textarea><br>
+
+    <button onclick="generateDocument()">Generate E-Stamp</button>
+  </div>
+
+  <div id="generated-document"></div>
+
+  <script>
+    function generateDocument() {
+      const clientName = document.getElementById('clientName').value;
+      const caseNumber = document.getElementById('caseNumber').value;
+      const legalContent = document.getElementById('legalContent').value;
+
+      const currentDate = new Date();
+      const formattedDate = `${currentDate.getDate()}/${currentDate.getMonth() + 1}/${currentDate.getFullYear()}`;
+
+      const generatedDocument = `
+        <div style="border: 2px solid #000; padding: 10px; margin-top: 20px;">
+          <h2>E-Stamp Document</h2>
+
+          <p><strong>Client Name:</strong> ${clientName}</p>
+          <p><strong>Case Number:</strong> ${caseNumber}</p>
+
+          <h3>Agreement:</h3>
+
+          <p>${legalContent}</p>
+
+          <p style="margin-top: 20px;">Sincerely,</p>
+
+          <p>${clientName}<br>[Your Law Firm]<br>${formattedDate}</p>
+        </div>
+      `;
+
+      document.getElementById('generated-document').innerHTML = generatedDocument;
+    }
+  </script>
+</body>
+</html>

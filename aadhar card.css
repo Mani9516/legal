@@ -1,0 +1,55 @@
+header {
+    background-color:black;
+    color: white;
+    padding: 0 ;
+    text-align: center;
+    height:900px;
+    border-color: black;
+}
+
+
+
+
+.img {
+margin:0;
+}
+
+    
+
+.body{
+   
+    display: block;
+       background-color: black;
+        margin: 0px;
+    }
+    .body style{
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    background-color: black;
+    }
+    
+    .cta-button {
+        display: inline-block;
+        background-color: transparent;
+        color: white;
+        padding: 10px 20px;
+        border: 0;
+        border-color: white;
+        text-decoration: none;
+        margin-top: 20px;
+        border-radius: 20px;
+        font-family: cursive;
+    }
+    
+
+.menu {
+    list-style: none;
+    display: flex;
+    
+}
+
+
+
+
