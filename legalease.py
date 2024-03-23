@@ -1,23 +1,5 @@
 import streamlit as st
-import speech_recognition as sr
 import pyttsx3
-
-# Function to recognize speech input
-def recognize_speech():
-    r = sr.Recognizer()
-    with sr.Microphone() as source:
-        st.write("Speak now...")
-        r.adjust_for_ambient_noise(source)
-        audio = r.listen(source)
-    try:
-        text = r.recognize_google(audio)
-        st.text("You said: " + text)
-        return text
-    except sr.UnknownValueError:
-        st.write("Sorry, could not understand your audio.")
-    except sr.RequestError as e:
-        st.write("Could not request results; {0}".format(e))
-
 # Function to speak response
 def speak_response(response):
     engine = pyttsx3.init()
