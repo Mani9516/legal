@@ -1,5 +1,6 @@
 import streamlit as st
 import pyttsx3
+import openai
 # Function to speak response
 def speak_response(response):
     engine = pyttsx3.init()
