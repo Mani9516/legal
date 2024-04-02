@@ -1,6 +1,7 @@
 import streamlit as st
 import pyttsx3
-import openai
+
+# Function to recognize speech input
 # Function to speak response
 def speak_response(response):
     engine = pyttsx3.init()
@@ -110,6 +111,15 @@ if st.button("Send"):
     else:
         bot_response = "I'm sorry, I don't know the answer to that question."
 
-    st.text("⚖️ LegalEase: " + bot_response)
+    st.text("⚖ LegalEase: " + bot_response)
     speak_response(bot_response)
 
+# Button for voice input with spoken prompt
+if st.button("Speak"):
+    user_input = recognize_speech()
+    if user_input:
+        speak_response("Hi! How can I help you?")  # Speak prompt
+        st.write("How can I help you?")
+        response = get_chatgpt_response(user_input)
+        st.text("⚖ LegalEase: " + response)
+        speak_response(response)
